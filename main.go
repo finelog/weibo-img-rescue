@@ -161,9 +161,10 @@ func main() {
 
 	for lastip = range ipchan {
 		if do(lastip) {
-			break
+			return
 		}
 	}
+	println("sorry,this image is beyond rescue.")
 }
 
 func freships(img *url.URL) {
