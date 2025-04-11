@@ -169,6 +169,12 @@ func main() {
 
 func freships(img *url.URL) {
 	wsargs := url.Values{}
+	if yqceUser == "" {
+		yqceUser = os.Getenv("YQCE_USER")
+	}
+	if yqceApikey == "" {
+		yqceApikey = os.Getenv("YQCE_API_KEY")
+	}
 	if yqceUser != "" && yqceApikey != "" {
 		yqceCoder(wsargs)
 	} else if yqceUser != "" || yqceApikey != "" {
