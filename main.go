@@ -168,6 +168,10 @@ func main() {
 }
 
 func freships(img *url.URL) {
+	defer func() {
+		close(ipchan)
+	}()
+
 	wsargs := url.Values{}
 	if yqceUser == "" {
 		yqceUser = os.Getenv("YQCE_USER")
@@ -252,7 +256,6 @@ func freships(img *url.URL) {
 			}
 		}
 	}
-	close(ipchan)
 }
 
 func yqceCoder(wsargs url.Values) {
